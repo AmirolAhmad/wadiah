@@ -13,6 +13,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'rails_config'
+gem 'annotate', '~> 2.6.6'
 
 group :development, :test do
   gem 'byebug'
