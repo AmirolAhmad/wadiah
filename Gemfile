@@ -13,9 +13,13 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'rails_config'
-gem 'annotate', '~> 2.6.6'
 gem 'jquery-turbolinks'
 gem 'haml-rails', '~> 0.9'
+
+group :development do
+  gem 'letter_opener'
+  gem 'annotate', '~> 2.6.6'
+end
 
 group :development, :test do
   gem 'byebug'
