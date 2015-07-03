@@ -14,6 +14,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'rails_config'
 gem 'annotate', '~> 2.6.6'
+gem 'jquery-turbolinks'
 
 group :development, :test do
   gem 'byebug'
