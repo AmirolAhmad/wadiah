@@ -47,6 +47,12 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
+staging:
+  <<: *default
+  database: wadiah_staging
+  username: wadiah
+  password: <%= ENV['WADIAH_DATABASE_PASSWORD'] %>
+
 production:
   <<: *default
   database: wadiah_production
