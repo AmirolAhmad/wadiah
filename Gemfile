@@ -19,6 +19,7 @@ gem 'haml-rails', '~> 0.9'
 group :development do
   gem 'letter_opener'
   gem 'annotate', '~> 2.6.6'
+  gem 'quiet_assets'
 end
 
 group :development, :test do
