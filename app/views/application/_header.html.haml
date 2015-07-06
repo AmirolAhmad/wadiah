@@ -14,8 +14,8 @@
         - if user_signed_in?
           %li{:class => "#{current_page(dashboard_path)}"}
             = link_to "Dashboard", dashboard_path
-          %li
-            %a{href: ""} BUY NEW LOT
+          %li{:class => "#{current_page(new_order_path)}"}
+            = link_to "BUY NEW LOT", new_order_path
       %ul.nav.navbar-nav.navbar-right
         - if user_signed_in?
           %li.dropdown

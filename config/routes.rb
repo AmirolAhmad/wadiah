@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   get 'dashboard' => 'dashboards#index'
 
   devise_for :users
@@ -9,6 +10,8 @@ Rails.application.routes.draw do
     get '/account_update' => 'devise/registrations#edit'
   end
   root 'pages#index'
+
+  resources :orders
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

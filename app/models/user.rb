@@ -39,6 +39,8 @@ class User < ActiveRecord::Base
 
   attr_accessor :login
 
+  has_many :orders
+
   def set_default_role
     self.admin ||= false
   end
