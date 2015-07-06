@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'dashboard' => 'dashboards#index'
+
   devise_for :users
   devise_scope :user do
     delete 'sign_out', :to => 'devise/sessions#destroy'
