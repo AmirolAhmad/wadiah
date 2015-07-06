@@ -1,2 +1,5 @@
-%h1 Dashboards#index
-%p Find me in app/views/dashboards/index.html.haml
+- if user_signed_in?
+  - if current_user.is_admin?
+    = render partial: "admin_dashboard"
+  - else
+    = render partial: "user_dashboard"
