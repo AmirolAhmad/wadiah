@@ -69,3 +69,49 @@ body {
 	/*margin-bottom: 100px;*/
 	/*padding-top: 60px;*/
 }
+
+/*
+	Navbar
+*/
+
+.navbar-brand {
+	/*padding: 5px 10px;*/
+}
+
+.navbar-brand img {
+	width: 97px;
+	height: 40px;
+}
+
+.navbar {
+	z-index: 1;
+	border-radius: 0;
+}
+
+.navbar-nav > li > a > img {
+	margin-top: -22px;
+	margin-bottom: -18px;
+}
+
+.nomar-bot {
+	margin-bottom: 0;
+	border-bottom: 1px solid transparent;
+	border-radius: 0;
+}
+
+.navbar-wadiah {
+	background-color: #594778;
+	border-color: #594778;
+}
+
+.navbar-wadiah .navbar-brand {
+	color: #fff;
+}
+
+.navbar-wadiah .navbar-nav > li > a {
+	color: #fff;
+}
+
+.navbar-wadiah .navbar-nav > li > a:hover {
+	background-color: #524778;
+}
