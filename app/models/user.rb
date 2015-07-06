@@ -40,6 +40,7 @@ class User < ActiveRecord::Base
   attr_accessor :login
 
   has_many :orders
+  has_many :payments
 
   def set_default_role
     self.admin ||= false

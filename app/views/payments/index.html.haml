@@ -1,0 +1,29 @@
+.page-header
+  %h1 My payment lists
+.panel.panel-default
+  .panel-heading
+    %h3.panel-title
+      Payment List #{link_to "Add new payment", new_payment_path, class: "btn btn-xs btn-primary pull-right", style: "color:#FFFFFF;"}
+  .panel-body
+    %table.table.table-bordered.table-hovered
+      %thead
+        %tr
+          %th Receipt Number
+          %th.col-md-2 Payment Date
+          %th.col-md-2 Order Number
+          %th.col-md-1 Status
+          %th.col-md-2 Total Payment
+      %tbody
+        - @payments.each do |payment|
+          %tr
+            %td= payment.receipt_number
+            %td= payment.payment_date
+            %td= payment.order.order_number
+            %td
+              - if payment.is_accepted?
+                %span.label.label-primary= payment.status
+              - elsif payment.is_pending?
+                %span.label.label-warning= payment.status
+              - else
+                %span.label.label-danger= payment.status
+            %td= number_to_currency(payment.total_payment)

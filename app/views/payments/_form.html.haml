@@ -1,0 +1,41 @@
+= form_for @payment, html: { class: "" } do |f|
+  .panel-body
+    - if @payment.errors.any?
+      .alert.alert.danger.alert-dismissable
+        %button.close{type: "button", 'data-dismiss' => 'alert', 'alert-hidden' => 'true'} &times;
+        %strong
+          = pluralize(@payment.errors.count, "error")
+          prohibited this page from being saved:
+        %ul
+          - @payment.errors.full_messages.each do |msg|
+            %li= msg
+    .form-group
+      = f.label :order_id, "Payment For (Order Number)"
+      = f.collection_select(:order_id, Order.not_active.where(user_id: @order, user_id: @user), :id, :order_number, {include_blank: '-- Choose one'}, {:class => "form-control"})
+    .form-group
+      = f.label :payment_method, "Payment Method"
+      = f.text_field :payment_method, class: "form-control", placeholder: "Online Bankin (CIMB, Maybank), ATM Machine"
+    .row
+      .col-md-6
+        .form-group
+          = f.label :payment_date, "Payment Date"
+          = f.text_field :payment_date, class: "form-control", placeholder: "dd/mm/yyyy", 'data-provide' => "datepicker"
+      .col-md-6
+        .form-group
+          = f.label :payment_time, "Payment Time"
+          = f.text_field :payment_time, class: "form-control"
+    .row
+      .col-md-6
+        .form-group
+          = f.label :reference_number, "Reference Number"
+          = f.text_field :reference_number, class: "form-control"
+      .col-md-6
+        .form-group
+          = f.label :total_payment, "Total Payment"
+          = f.text_field :total_payment, class: "form-control"
+    .form-group
+      = f.label :attachment, "Proof of document"
+      = f.text_field :attachment, class: "form-control"
+  .panel-footer
+    = f.submit "Submit", class: "btn btn-primary"
+    = link_to "Cancel", orders_path, class: "btn btn-link"

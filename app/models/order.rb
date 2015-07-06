@@ -18,6 +18,9 @@
 
 class Order < ActiveRecord::Base
   belongs_to :user
+  has_many :payments, dependent: :destroy
+
+  scope :not_active, -> {where(status: "Pending")}
 
   after_initialize :set_default_status, if: :new_record?
   after_create :generate_order_number

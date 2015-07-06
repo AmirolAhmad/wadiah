@@ -12,5 +12,7 @@
  *
  *= require_self
  *= require bootstrap
+ *= require bootstrap-datepicker3
+ *= require bootstrap-timepicker
  *= require style
  */
