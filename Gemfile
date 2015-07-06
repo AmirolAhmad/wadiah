@@ -15,6 +15,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'rails_config'
 gem 'jquery-turbolinks'
 gem 'haml-rails', '~> 0.9'
+gem 'devise'
 
 group :development do
   gem 'letter_opener'
@@ -27,4 +28,3 @@ group :development, :test do
   gem 'web-console', '~> 2.0'
   gem 'spring'
 end
-
