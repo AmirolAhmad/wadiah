@@ -40,7 +40,7 @@ class User < ActiveRecord::Base
   attr_accessor :login
 
   def set_default_role
-    admin === false
+    self.admin ||= false
   end
 
   def is_admin?
