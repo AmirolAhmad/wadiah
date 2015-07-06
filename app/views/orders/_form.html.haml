@@ -1,0 +1,23 @@
+= form_for @order, html: { class: "form-horizontal" } do |f|
+  .panel-body
+    - if @order.errors.any?
+      .alert.alert.danger.alert-dismissable
+        %button.close{type: "button", 'data-dismiss' => 'alert', 'alert-hidden' => 'true'} &times;
+        %strong
+          = pluralize(@order.errors.count, "error")
+          prohibited this page from being saved:
+        %ul
+          - @order.errors.full_messages.each do |msg|
+            %li= msg
+    .form-group
+      = f.label :quantity, "Quantity", class: "col-md-2 control-label"
+      .col-md-10
+        = f.text_field :quantity, class: "form-control", placeholder: "10"
+    .form-group
+      = f.label :price, "Price", class: "col-md-2 control-label"
+      .col-md-10
+        = f.text_field :price, class: "form-control", value: "RM 100", readonly: true
+        %p.help-block.small price per quantity
+  .panel-footer
+    = f.submit "Submit", class: "btn btn-primary"
+    = link_to "Cancel", orders_path, class: "btn btn-link"

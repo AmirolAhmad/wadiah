@@ -20,9 +20,23 @@ class Order < ActiveRecord::Base
   belongs_to :user
 
   after_initialize :set_default_status, if: :new_record?
+  after_create :generate_order_number
+  after_create :calculate_total_price
 
   def set_default_status
     self.status ||= "Pending"
+  end
+
+  def generate_order_number
+    random = ['1'..'9'].map { |i| i.to_a }.flatten
+    order_number = (0...7).map { random[rand(random.length)] }.join
+    self.update_attributes(:order_number => "#" + order_number)
+  end
+
+  def calculate_total_price
+    fixed_price = 100
+    total_price = self.quantity * fixed_price
+    self.update(:total_price => total_price)
   end
 
   def is_pending?
