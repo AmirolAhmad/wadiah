@@ -26,6 +26,8 @@ class Payment < ActiveRecord::Base
   belongs_to :user
   belongs_to :order
 
+  validates_presence_of :order_id, :payment_method, :payment_time, :payment_date, :reference_number, :total_payment, :attachment
+
   after_initialize :set_default_status, if: :new_record?
   after_create :generate_receipt_number
   after_update :update_order_status
