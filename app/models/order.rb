@@ -28,6 +28,7 @@ class Order < ActiveRecord::Base
   after_initialize :set_default_status, if: :new_record?
   after_create :generate_order_number
   after_create :calculate_total_price
+  after_create :send_mailer
 
   def set_default_status
     self.status ||= "Pending"
@@ -43,6 +44,11 @@ class Order < ActiveRecord::Base
     fixed_price = 100
     total_price = self.quantity * fixed_price
     self.update(:total_price => total_price)
+  end
+
+  def send_mailer
+    OrderMailer.order_email(self).deliver
+    OrderMailer.notify_admin(self).deliver
   end
 
   def is_pending?
