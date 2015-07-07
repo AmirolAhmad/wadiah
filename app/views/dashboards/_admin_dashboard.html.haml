@@ -14,7 +14,7 @@
           %th.col-md-2 Total Price
           %th.col-md-1 Status
           %th.col-md-2 Date Created
-          %th Action
+          %th.col-md-1 Action
       %tbody
         - @orders.each do |order|
           %tr
@@ -31,6 +31,10 @@
                 %span.label.label-danger= order.status
             %td= order.created_at.strftime("%d %B %Y")
             %td
+              - if order.is_pending? || order.is_active?
+                = link_to "Mark as cancel", set_cancelled_order_path(order), method: :patch, class: "btn btn-xs btn-danger"
+              - elsif order.is_cancel?
+                = link_to "Mark as pending", set_pending_order_path(order), method: :patch, class: "btn btn-xs btn-warning"
 .page-header
   %h1 List all payment (sort by latest)
 .panel.panel-default
@@ -47,7 +51,7 @@
           %th.col-md-2 Order Number
           %th.col-md-1 Status
           %th.col-md-2 Total Payment
-          %th Action
+          %th.col-md-3 Action
       %tbody
         - @payments.each do |payment|
           %tr
@@ -64,6 +68,16 @@
                 %span.label.label-danger= payment.status
             %td= number_to_currency(payment.total_payment)
             %td
+              - if payment.is_pending?
+                = link_to "Mark as accepted", set_accepted_payment_path(payment), method: :patch, class: "btn btn-xs btn-primary"
+                = link_to "Mark as rejected", set_rejected_payment_path(payment), method: :patch, class: "btn btn-xs btn-danger"
+              - elsif payment.is_accepted?
+                = link_to "Mark as pending", set_pending_payment_path(payment), method: :patch, class: "btn btn-xs btn-warning"
+                = link_to "Mark as rejected", set_rejected_payment_path(payment), method: :patch, class: "btn btn-xs btn-danger"
+              - else
+                = link_to "Mark as pending", set_pending_payment_path(payment), method: :patch, class: "btn btn-xs btn-warning"
+                = link_to "Mark as accepted", set_accepted_payment_path(payment), method: :patch, class: "btn btn-xs btn-primary"
+
 .page-header
   %h1 List all user (sort by latest)
 .panel.panel-default

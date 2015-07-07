@@ -1,7 +1,8 @@
 class PaymentsController < ApplicationController
   before_action :authenticate_user!
   before_filter :set_user, only: [:index, :new, :create, :show]
-  before_filter :user_only
+  before_filter :user_only, only: [:index, :new, :create, :show]
+  before_filter :admin_only, only: [:set_pending, :set_accepted, :set_rejected]
 
   def index
     @payments = Payment.where(user_id: @user)
@@ -22,7 +23,25 @@ class PaymentsController < ApplicationController
   end
 
   def show
-    
+
+  end
+
+  def set_pending
+    @payment = Payment.find(params[:id])
+    @payment.update_attributes(status: "Pending")
+    redirect_to dashboard_path
+  end
+
+  def set_accepted
+    @payment = Payment.find(params[:id])
+    @payment.update_attributes(status: "Accepted")
+    redirect_to dashboard_path
+  end
+
+  def set_rejected
+    @payment = Payment.find(params[:id])
+    @payment.update_attributes(status: "Rejected")
+    redirect_to dashboard_path
   end
 
   private

@@ -11,8 +11,19 @@ Rails.application.routes.draw do
   end
   root 'pages#index'
 
-  resources :orders, except: [:edit, :update, :destroy, :show]
-  resources :payments, except: [:edit, :update, :destroy]
+  resources :orders, except: [:edit, :update, :destroy, :show] do
+    member do
+      patch :set_cancelled
+        patch :set_pending
+    end
+  end
+  resources :payments, except: [:edit, :update, :destroy] do
+    member do
+      patch :set_pending
+      patch :set_accepted
+      patch :set_rejected
+    end
+  end
   resource :profile, only: [:show, :edit, :update]
 
   # The priority is based upon order of creation: first created -> highest priority.

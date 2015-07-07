@@ -1,7 +1,8 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!
-  before_filter :set_user, only: [:index, :new, :create, :show]
-  before_filter :user_only
+  before_filter :set_user, only: [:index, :new, :create]
+  before_filter :user_only, only: [:index, :new, :create]
+  before_filter :admin_only, only: [:set_cancelled, :set_pending]
 
   def index
     @orders = Order.where(user_id: @user)
@@ -19,6 +20,18 @@ class OrdersController < ApplicationController
     else
       render 'new'
     end
+  end
+
+  def set_cancelled
+    @order = Order.find(params[:id])
+    @order.update_attributes(status: "Cancel")
+    redirect_to dashboard_path
+  end
+
+  def set_pending
+    @order = Order.find(params[:id])
+    @order.update_attributes(status: "Pending")
+    redirect_to dashboard_path
   end
 
   private

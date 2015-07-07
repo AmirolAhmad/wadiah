@@ -28,6 +28,7 @@ class Payment < ActiveRecord::Base
 
   after_initialize :set_default_status, if: :new_record?
   after_create :generate_receipt_number
+  after_update :update_order_status
 
   default_scope -> { order('payments.created_at DESC') }
 
@@ -39,6 +40,16 @@ class Payment < ActiveRecord::Base
     random = ['1'..'9'].map { |i| i.to_a }.flatten
     receipt_number = (0...4).map { random[rand(random.length)] }.join
     self.update_attributes(:receipt_number => "#WS-P" + receipt_number)
+  end
+
+  def update_order_status
+    if self.status === "Accepted"
+      self.order.update_attributes(status: "Active")
+    elsif self.status === "Pending"
+      self.order.update_attributes(status: "Pending")
+    else
+      self.order.update_attributes(status: "Pending")
+    end
   end
 
   def is_pending?
