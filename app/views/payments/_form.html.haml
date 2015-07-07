@@ -1,4 +1,4 @@
-= form_for @payment, html: { class: "" } do |f|
+= form_for @payment, html: { :multipart => true } do |f|
   .panel-body
     - if @payment.errors.any?
       .alert.alert-danger.alert-dismissable
@@ -34,8 +34,11 @@
           = f.label :total_payment, "Total Payment"
           = f.text_field :total_payment, class: "form-control"
     .form-group
-      = f.label :attachment, "Proof of document"
-      = f.text_field :attachment, class: "form-control"
+      = f.label :attachment, "Proof of Document"
+      = f.file_field :attachment
+      = f.hidden_field :attachment_cache
+      .help-block.small Must be pdf, png, jpg or jpeg.
+      / = f.text_field :attachment, class: "form-control"
   .panel-footer
     = f.submit "Submit", class: "btn btn-primary"
     = link_to "Cancel", orders_path, class: "btn btn-link"

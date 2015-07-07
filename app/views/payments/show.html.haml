@@ -39,7 +39,7 @@
             .col-md-6
               %p
                 %strong Proof of Document
-              %p= @payment.attachment
+              %p= link_to "Receipt", @payment.attachment_url, target: "_blank"
         .panel-footer
           - if current_user.is_admin?
             = link_to "Back to Dashboard", dashboard_path, class: "btn btn-link"

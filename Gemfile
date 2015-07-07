@@ -16,6 +16,7 @@ gem 'rails_config'
 gem 'jquery-turbolinks'
 gem 'haml-rails', '~> 0.9'
 gem 'devise'
+gem 'carrierwave'
 
 group :development do
   gem 'letter_opener'

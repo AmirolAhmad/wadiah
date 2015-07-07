@@ -25,6 +25,7 @@
 class Payment < ActiveRecord::Base
   belongs_to :user
   belongs_to :order
+  mount_uploader :attachment, AttachmentUploader
 
   validates_presence_of :order_id, :payment_method, :payment_time, :payment_date, :reference_number, :total_payment, :attachment
 
