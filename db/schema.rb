@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150706163448) do
+ActiveRecord::Schema.define(version: 20150707022532) do
 
   create_table "orders", force: :cascade do |t|
     t.integer  "user_id",      limit: 4
@@ -43,6 +43,23 @@ ActiveRecord::Schema.define(version: 20150706163448) do
   add_index "payments", ["order_id"], name: "index_payments_on_order_id", using: :btree
   add_index "payments", ["user_id"], name: "index_payments_on_user_id", using: :btree
 
+  create_table "profiles", force: :cascade do |t|
+    t.integer  "user_id",      limit: 4
+    t.string   "fname",        limit: 255
+    t.string   "lname",        limit: 255
+    t.text     "address1",     limit: 65535
+    t.text     "address2",     limit: 65535
+    t.string   "postcode",     limit: 255
+    t.string   "city",         limit: 255
+    t.string   "state",        limit: 255
+    t.string   "country",      limit: 255
+    t.string   "phone_number", limit: 255
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
+
+  add_index "profiles", ["user_id"], name: "index_profiles_on_user_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false
     t.string   "encrypted_password",     limit: 255, default: "", null: false
@@ -72,4 +89,5 @@ ActiveRecord::Schema.define(version: 20150706163448) do
   add_foreign_key "orders", "users"
   add_foreign_key "payments", "orders"
   add_foreign_key "payments", "users"
+  add_foreign_key "profiles", "users"
 end

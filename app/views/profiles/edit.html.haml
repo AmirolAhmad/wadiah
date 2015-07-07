@@ -1,0 +1,49 @@
+.page-header
+  %h1.text-center Account Profile
+.container
+  .row
+    .col-md-6.col-md-offset-3
+      .panel.panel-default
+        .panel-heading
+          %h3.panel-title Profile Details
+        .panel-body
+          = form_for @user, url: profile_path, method: :patch, remote: true do |f|
+            = f.fields_for :profile_attributes, @user.profile do |p|
+              .row
+                .col-md-6
+                  .form-group
+                    = p.label :fname, "First Name"
+                    = p.text_field :fname, class: "form-control"
+                .col-md-6
+                  .form-group
+                    = p.label :lname, "Last Name"
+                    = p.text_field :lname, class: "form-control"
+              .form-group
+                = p.label :address1, "Address 1"
+                = p.text_area :address1, class: "form-control", rows: 3
+              .form-group
+                = p.label :address2, "Address 2"
+                = p.text_area :address2, class: "form-control", rows: 3
+              .row
+                .col-md-6
+                  .form-group
+                    = p.label :postcode, "Postcode"
+                    = p.text_field :postcode, class: "form-control"
+                .col-md-6
+                  .form-group
+                    = p.label :city, "City"
+                    = p.text_field :city, class: "form-control"
+              .row
+                .col-md-6
+                  .form-group
+                    = p.label :state, "State"
+                    = p.text_field :state, class: "form-control"
+                .col-md-6
+                  .form-group
+                    = p.label :country, "Country"
+                    = p.text_field :country, class: "form-control"
+              .form-group
+                = p.label :phone_number, "Phone Number"
+                = p.text_field :phone_number, class: "form-control"
+              .form-group
+                = f.submit "Submit", class: "btn btn-primary"

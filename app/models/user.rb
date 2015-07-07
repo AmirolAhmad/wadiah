@@ -37,10 +37,13 @@ class User < ActiveRecord::Base
 
   validates :username, :uniqueness => { :case_sensitive => false }, format: { with: /\A[-\w.]*\z/ }, presence: true
 
-  attr_accessor :login
-
   has_many :orders
   has_many :payments
+  has_one :profile
+
+  attr_accessor :login
+  accepts_nested_attributes_for :profile, update_only: true
+  validates_associated :profile
 
   def set_default_role
     self.admin ||= false
