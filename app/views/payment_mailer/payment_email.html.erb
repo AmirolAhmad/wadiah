@@ -847,7 +847,7 @@ p.italic {
                             <p>
                               <strong>Date of Payment:</strong> <%= @payment[:payment_date] %> at <%= @payment[:payment_time] %><br />
                               <strong>Payment Method:</strong> <%= @payment[:payment_method] %><br />
-                              <strong>Total of Payment:</strong> RM <%= @payment[:total_payment] %><br />
+                              <strong>Total of Payment:</strong> <%= number_to_currency(@payment[:total_payment]) %><br />
                               <strong>Payment For (Order Number):</strong> <%= @payment.order[:order_number] %><br />
                               <strong>Payment Status:</strong> <%= @payment[:status] %>
                             </p>
