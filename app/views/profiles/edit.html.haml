@@ -7,7 +7,16 @@
         .panel-heading
           %h3.panel-title Profile Details
         .panel-body
-          = form_for @user, url: profile_path, method: :patch, remote: true do |f|
+          = form_for @user, url: profile_path, method: :patch do |f|
+            - if @user.errors.any?
+              .alert.alert-danger.alert-dismissable
+                %button.close{type: "button", 'data-dismiss' => 'alert', 'alert-hidden' => 'true'} &times;
+                %strong
+                  = pluralize(@user.errors.count, "error")
+                  prohibited this page from being saved:
+                %ul
+                  - @user.errors.full_messages.each do |msg|
+                    %li= msg
             = f.fields_for :profile_attributes, @user.profile do |p|
               .row
                 .col-md-6

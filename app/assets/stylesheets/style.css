@@ -167,3 +167,11 @@ section#password-form p a {
 #password-form .form-box .page-header {
 	padding-top: 10px;
 }
+
+/*
+	custom
+*/
+
+.col-avatar {
+	width: 19.6%;
+}

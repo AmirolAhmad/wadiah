@@ -19,7 +19,7 @@ class ProfilesController < ApplicationController
 
   def update
     if @user.update(user_params)
-      render js: "alert('Your profile has been successfully update!')"
+      redirect_to profile_path, notice: "Your profile has been updated."
     else
       render 'edit'
     end

@@ -1,7 +1,7 @@
 = form_for @payment, html: { class: "" } do |f|
   .panel-body
     - if @payment.errors.any?
-      .alert.alert.danger.alert-dismissable
+      .alert.alert-danger.alert-dismissable
         %button.close{type: "button", 'data-dismiss' => 'alert', 'alert-hidden' => 'true'} &times;
         %strong
           = pluralize(@payment.errors.count, "error")

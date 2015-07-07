@@ -23,4 +23,8 @@
 
 class Profile < ActiveRecord::Base
   belongs_to :user
+
+  validates_presence_of :fname, :lname, :address1, :address2, :postcode, :city, :state, :country, :phone_number
+  validates_numericality_of :postcode, length: { is: 5 }, allow_blank: true, :only_integer => true, :message => 'should only contain numbers.'
+  validates           :phone_number, length: { in: 8..15 }, format: { with: /\A0[0-9\-\+ \/]*\z/ }, allow_blank: true, :numericality => true
 end
