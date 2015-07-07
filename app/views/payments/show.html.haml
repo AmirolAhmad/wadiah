@@ -1,0 +1,47 @@
+.page-header
+  %h1.text-center Payment for #{@payment.order.order_number}
+.container
+  .row
+    .col-md-6.col-md-offset-3
+      .panel.panel-default
+        .panel-heading
+          %h3.panel-title Payment Details
+        .panel-body
+          .row
+            .col-md-6
+              %p
+                %strong Payment For (Order Number)
+              %p= @payment.order.order_number
+            .col-md-6
+              %p
+                %strong Reference Number
+              %p= @payment.reference_number
+          %hr
+          .row
+            .col-md-4
+              %p
+                %strong Payment Method
+              %p= @payment.payment_method
+            .col-md-4
+              %p
+                %strong Payment Date
+              %p= @payment.payment_date
+            .col-md-4
+              %p
+                %strong Payment Time
+              %p= @payment.payment_time
+          %hr
+          .row
+            .col-md-6
+              %p
+                %strong Total Payment
+              %p= number_to_currency(@payment.total_payment)
+            .col-md-6
+              %p
+                %strong Proof of Document
+              %p= @payment.attachment
+        .panel-footer
+          - if current_user.is_admin?
+            = link_to "Back to Dashboard", dashboard_path, class: "btn btn-link"
+          - else
+            = link_to "Back to Payment List", payments_path, class: "btn btn-link"

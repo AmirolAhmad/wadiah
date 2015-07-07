@@ -1,7 +1,7 @@
 class PaymentsController < ApplicationController
   before_action :authenticate_user!
   before_filter :set_user, only: [:index, :new, :create, :show]
-  before_filter :user_only, only: [:index, :new, :create, :show]
+  before_filter :user_only, only: [:index, :new, :create]
   before_filter :admin_only, only: [:set_pending, :set_accepted, :set_rejected]
 
   def index
@@ -23,7 +23,16 @@ class PaymentsController < ApplicationController
   end
 
   def show
-
+    @payment = Payment.find(params[:id])
+    if @payment
+      render
+    else
+      if !current_user.is_admin?
+        redirect_to payments_path, notice: "Oops! Payment not found!"
+      else
+        redirect_to dashboard_path, notice: "Oops! Payment not found!"
+      end
+    end
   end
 
   def set_pending

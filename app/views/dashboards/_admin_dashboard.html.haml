@@ -56,7 +56,7 @@
         - @payments.each do |payment|
           %tr
             %td= payment.user.username
-            %td= payment.receipt_number
+            %td= link_to payment.receipt_number, payment_path(payment)
             %td= payment.payment_date
             %td= payment.order.order_number
             %td
