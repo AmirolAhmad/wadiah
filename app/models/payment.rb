@@ -32,6 +32,7 @@ class Payment < ActiveRecord::Base
   after_initialize :set_default_status, if: :new_record?
   after_create :generate_receipt_number
   after_update :update_order_status
+  after_create :send_mailer
 
   default_scope -> { order('payments.created_at DESC') }
 
@@ -53,6 +54,11 @@ class Payment < ActiveRecord::Base
     else
       self.order.update_attributes(status: "Pending")
     end
+  end
+
+  def send_mailer
+    PaymentMailer.payment_email(self).deliver
+    PaymentMailer.notify_admin(self).deliver
   end
 
   def is_pending?
