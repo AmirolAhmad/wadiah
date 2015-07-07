@@ -17,7 +17,7 @@ class PaymentMailer < ApplicationMailer
     @payment = payment
 
     mail(
-      :to => "9w2pdf@gmail.com",
+      :to => "wadiahsavings@gmail.com",
       :subject => "New payment has been created by #{payment.user.username}!"
     )
    end

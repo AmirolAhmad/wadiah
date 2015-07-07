@@ -14,7 +14,7 @@ class OrderMailer < ApplicationMailer
     @order = order
 
     mail(
-      :to => "9w2pdf@gmail.com",
+      :to => "wadiahsavings@gmail.com",
       :subject => "New order has been created by #{order.user.username}!"
     )
    end
