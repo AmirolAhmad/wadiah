@@ -19,7 +19,7 @@ ready = function() {
   // dataTable
   $('.display').DataTable({
     "aaSorting": []
-  });
+  }).api();;
 
   oTable = $('.table').DataTable();
 
