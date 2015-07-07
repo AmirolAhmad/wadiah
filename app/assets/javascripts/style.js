@@ -12,3 +12,18 @@ $(document).ready( function () {
     disableFocus: true
   });
 });
+
+var ready;
+ready = function() {
+
+  // dataTable
+  $('.display').DataTable({
+    "aaSorting": []
+  });
+
+  oTable = $('.table').DataTable();
+
+};
+
+$(document).ready(ready);
+$(document).on('page:load', ready);

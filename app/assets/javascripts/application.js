@@ -16,5 +16,7 @@
 //= require bootstrap
 //= require bootstrap-datepicker
 //= require bootstrap-timepicker
+//= require jquery.dataTables.min
+//= require dataTables.bootstrap
 //= require style
 //= require turbolinks
