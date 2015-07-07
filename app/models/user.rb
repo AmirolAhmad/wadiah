@@ -45,6 +45,8 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :profile, update_only: true
   validates_associated :profile
 
+  default_scope -> { order('users.created_at DESC') }
+
   def set_default_role
     self.admin ||= false
   end

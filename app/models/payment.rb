@@ -29,6 +29,8 @@ class Payment < ActiveRecord::Base
   after_initialize :set_default_status, if: :new_record?
   after_create :generate_receipt_number
 
+  default_scope -> { order('payments.created_at DESC') }
+
   def set_default_status
     self.status ||= "Pending"
   end

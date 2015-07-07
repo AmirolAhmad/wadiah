@@ -20,6 +20,7 @@ class Order < ActiveRecord::Base
   belongs_to :user
   has_many :payments, dependent: :destroy
 
+  default_scope -> { order('orders.created_at DESC') }
   scope :not_active, -> {where(status: "Pending")}
 
   after_initialize :set_default_status, if: :new_record?
