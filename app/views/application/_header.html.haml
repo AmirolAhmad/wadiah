@@ -14,12 +14,13 @@
         - if user_signed_in?
           %li{:class => "#{current_page(dashboard_path)}"}
             = link_to "Dashboard", dashboard_path
+      = link_to "Buy New Lot", new_order_path, class: "btn btn-primary btn-xs navbar-btn"
       %ul.nav.navbar-nav.navbar-right
-        %li{:class => "#{current_page(orders_path)}"}
-          = link_to "Manage Order", orders_path
-        %li{:class => "#{current_page(payments_path)}"}
-          = link_to "Manage Payment", payments_path
         - if user_signed_in?
+          %li{:class => "#{current_page(orders_path)}"}
+            = link_to "Manage Order", orders_path
+          %li{:class => "#{current_page(payments_path)}"}
+            = link_to "Manage Payment", payments_path
           %li.dropdown
             = link_to "", class: "dropdown-toggle", "data-toggle" => "dropdown", role: "button", "aria-expanded" => "false" do
               = image_tag avatar_url(current_user), alt: "#{current_user.username}", class: "img-circle"
@@ -36,4 +37,3 @@
           = link_to register_path, class: "btn btn-default btn-xs navbar-btn" do
             .small.glyphicon.glyphicon-user
             Create An Account
-      = link_to "Buy New Lot", new_order_path, class: "btn btn-primary btn-xs navbar-btn navbar-right"
