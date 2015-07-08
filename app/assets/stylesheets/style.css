@@ -227,15 +227,7 @@ section#password-form p a {
 */
 
 .pages.index .footer {
-  background-color: #e7ebf0;
-  padding: 45px 0 35px;
-  font-size: 13px;
-  color: #666;
-}
-
-.pages.privacy .footer,
-.pages.terms .footer {
-  background-color: #fff;
+  background-color: #121212;
   padding: 45px 0 35px;
   font-size: 13px;
   color: #666;
