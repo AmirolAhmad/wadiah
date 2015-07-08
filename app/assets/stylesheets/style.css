@@ -229,7 +229,7 @@ section#password-form p a {
 @media (min-width: 768px) {
   .what-forex .featurette-heading {
     font-size: 50px;
-    margin-top: 100px;
+    margin-top: 60px;
   }
 }
 
@@ -239,9 +239,9 @@ section#password-form p a {
 }
 
 .forex-currency {
-  background: url("/assets/forex-currency-pair.jpg") center no-repeat;
-  height: 540px;
-  width: 493px;
+  background: url("/assets/forex.jpg") center no-repeat;
+  height: 460px;
+  width: 100%;
 }
 
 .why-us {
