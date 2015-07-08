@@ -1,2 +1,29 @@
 .container
-  asdad
+  .page-header
+    %h1 Here is our calculation for your profit
+  .well.well-lg
+    %p Let's say for example you buy 20 lot for your Forex investment
+    %p
+      \- 1 lot = RM 100
+      %br/
+      \- 20 lot = RM 2,000
+      %br/
+      \- 1 entry
+    %p
+      %strong So for every week, you will get up to 5% which mean in this case, you will get RM 100 for 7 month.
+    %p For additional entry under you, we will increase the percent up to 10% for each entry. So in this case, you will get RM 200. Wow!
+  .alert.alert-warning
+    %p We will refund your money if you willing to stop investment in our plan. No worries.
+  %img{src: "/assets/luxury-cars.jpg", class: "img-responsive"}
+  %hr
+.apply
+  .container
+    .row
+      .col-md-10.col-md-offset-1.text-center
+        %h2 Register Now & Keep Forex
+        %p
+          Place to keep track record on your Forex investment order and payment 
+          %br
+          We are here to help you to boost up weekly profit
+        = link_to "Create Account For FREE", register_path, class: "btn btn-primary btn-lg"
+= render partial: "footer"
