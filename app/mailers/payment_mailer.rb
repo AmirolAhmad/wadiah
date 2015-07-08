@@ -1,4 +1,4 @@
-class PaymentMailer < ApplicationMailer
+class PaymentMailer < ActionMailer::Base
   default from: '"Wadiah Savings" <no-reply@wadiahsaving.com>'
 
   def payment_email(payment)

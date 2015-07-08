@@ -1,4 +1,4 @@
-class OrderMailer < ApplicationMailer
+class OrderMailer < ActionMailer::Base
   default from: '"Wadiah Savings" <no-reply@wadiahsaving.com>'
 
   def order_email(order)
