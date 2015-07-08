@@ -16,7 +16,7 @@ class OrdersController < ApplicationController
   def create
     @order = @user.orders.new(order_params)
     if @order.save
-      redirect_to orders_path, notice: "Awesome! New order has been submit!"
+      redirect_to orders_path, notice: "Awesome! New order has been submit and pending until you settle the payment! Please check your email for the payment instructions."
     else
       render 'new'
     end

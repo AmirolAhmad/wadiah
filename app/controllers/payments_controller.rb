@@ -16,7 +16,7 @@ class PaymentsController < ApplicationController
   def create
     @payment = @user.payments.new(payment_params)
     if @payment.save
-      redirect_to payments_path, notice: "Awesome! Payment has been submitted for review!"
+      redirect_to payments_path, notice: "Awesome! Payment has been submitted for review! An admin will respond to your payment shortly."
     else
       render 'new'
     end
