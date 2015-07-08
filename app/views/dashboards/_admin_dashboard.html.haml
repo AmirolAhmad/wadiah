@@ -1,99 +1,100 @@
-.page-header
-  %h1 List all order (sort by latest)
-.panel.panel-default
-  .panel-heading
-    %h3.panel-title
-      Order List
-  .panel-body
-    %table.table.table-bordered.table-hovered.display
-      %thead
-        %tr
-          %th By
-          %th Order Number
-          %th.col-md-1 Lot Quantity
-          %th.col-md-2 Total Price
-          %th.col-md-1 Status
-          %th.col-md-2 Date Created
-          %th.col-md-1 Action
-      %tbody
-        - @orders.each do |order|
+.container
+  .page-header
+    %h1 List all order (sort by latest)
+  .panel.panel-default
+    .panel-heading
+      %h3.panel-title
+        Order List
+    .panel-body
+      %table.table.table-bordered.table-hovered.display
+        %thead
           %tr
-            %td= order.user.username
-            %td= order.order_number
-            %td= order.quantity
-            %td= number_to_currency(order.total_price)
-            %td
-              - if order.is_active?
-                %span.label.label-primary= order.status
-              - elsif order.is_pending?
-                %span.label.label-warning= order.status
-              - else
-                %span.label.label-danger= order.status
-            %td= order.created_at.strftime("%d %B %Y")
-            %td
-              - if order.is_pending? || order.is_active?
-                = link_to "Mark as cancel", set_cancelled_order_path(order), method: :patch, class: "btn btn-xs btn-danger"
-              - elsif order.is_cancel?
-                = link_to "Mark as pending", set_pending_order_path(order), method: :patch, class: "btn btn-xs btn-warning"
-.page-header
-  %h1 List all payment (sort by latest)
-.panel.panel-default
-  .panel-heading
-    %h3.panel-title
-      Payment List
-  .panel-body
-    %table.table.table-bordered.table-hovered.display
-      %thead
-        %tr
-          %th By
-          %th Receipt Number
-          %th.col-md-2 Payment Date
-          %th.col-md-2 Order Number
-          %th.col-md-1 Status
-          %th.col-md-2 Total Payment
-          %th.col-md-3 Action
-      %tbody
-        - @payments.each do |payment|
+            %th By
+            %th Order Number
+            %th.col-md-1 Lot Quantity
+            %th.col-md-2 Total Price
+            %th.col-md-1 Status
+            %th.col-md-2 Date Created
+            %th.col-md-1 Action
+        %tbody
+          - @orders.each do |order|
+            %tr
+              %td= order.user.username
+              %td= order.order_number
+              %td= order.quantity
+              %td= number_to_currency(order.total_price)
+              %td
+                - if order.is_active?
+                  %span.label.label-primary= order.status
+                - elsif order.is_pending?
+                  %span.label.label-warning= order.status
+                - else
+                  %span.label.label-danger= order.status
+              %td= order.created_at.strftime("%d %B %Y")
+              %td
+                - if order.is_pending? || order.is_active?
+                  = link_to "Mark as cancel", set_cancelled_order_path(order), method: :patch, class: "btn btn-xs btn-danger"
+                - elsif order.is_cancel?
+                  = link_to "Mark as pending", set_pending_order_path(order), method: :patch, class: "btn btn-xs btn-warning"
+  .page-header
+    %h1 List all payment (sort by latest)
+  .panel.panel-default
+    .panel-heading
+      %h3.panel-title
+        Payment List
+    .panel-body
+      %table.table.table-bordered.table-hovered.display
+        %thead
           %tr
-            %td= payment.user.username
-            %td= link_to payment.receipt_number, payment_path(payment)
-            %td= payment.payment_date
-            %td= payment.order.order_number
-            %td
-              - if payment.is_accepted?
-                %span.label.label-primary= payment.status
-              - elsif payment.is_pending?
-                %span.label.label-warning= payment.status
-              - else
-                %span.label.label-danger= payment.status
-            %td= number_to_currency(payment.total_payment)
-            %td
-              - if payment.is_pending?
-                = link_to "Mark as accepted", set_accepted_payment_path(payment), method: :patch, class: "btn btn-xs btn-primary"
-                = link_to "Mark as rejected", set_rejected_payment_path(payment), method: :patch, class: "btn btn-xs btn-danger"
-              - elsif payment.is_accepted?
-                = link_to "Mark as pending", set_pending_payment_path(payment), method: :patch, class: "btn btn-xs btn-warning"
-                = link_to "Mark as rejected", set_rejected_payment_path(payment), method: :patch, class: "btn btn-xs btn-danger"
-              - else
-                = link_to "Mark as pending", set_pending_payment_path(payment), method: :patch, class: "btn btn-xs btn-warning"
-                = link_to "Mark as accepted", set_accepted_payment_path(payment), method: :patch, class: "btn btn-xs btn-primary"
+            %th By
+            %th Receipt Number
+            %th.col-md-2 Payment Date
+            %th.col-md-2 Order Number
+            %th.col-md-1 Status
+            %th.col-md-2 Total Payment
+            %th.col-md-3 Action
+        %tbody
+          - @payments.each do |payment|
+            %tr
+              %td= payment.user.username
+              %td= link_to payment.receipt_number, payment_path(payment)
+              %td= payment.payment_date
+              %td= payment.order.order_number
+              %td
+                - if payment.is_accepted?
+                  %span.label.label-primary= payment.status
+                - elsif payment.is_pending?
+                  %span.label.label-warning= payment.status
+                - else
+                  %span.label.label-danger= payment.status
+              %td= number_to_currency(payment.total_payment)
+              %td
+                - if payment.is_pending?
+                  = link_to "Mark as accepted", set_accepted_payment_path(payment), method: :patch, class: "btn btn-xs btn-primary"
+                  = link_to "Mark as rejected", set_rejected_payment_path(payment), method: :patch, class: "btn btn-xs btn-danger"
+                - elsif payment.is_accepted?
+                  = link_to "Mark as pending", set_pending_payment_path(payment), method: :patch, class: "btn btn-xs btn-warning"
+                  = link_to "Mark as rejected", set_rejected_payment_path(payment), method: :patch, class: "btn btn-xs btn-danger"
+                - else
+                  = link_to "Mark as pending", set_pending_payment_path(payment), method: :patch, class: "btn btn-xs btn-warning"
+                  = link_to "Mark as accepted", set_accepted_payment_path(payment), method: :patch, class: "btn btn-xs btn-primary"
 
-.page-header
-  %h1 List all user (sort by latest)
-.panel.panel-default
-  .panel-heading
-    %h3.panel-title
-      User List
-  .panel-body
-    %table.table.table-bordered.table-hovered.display
-      %thead
-        %tr
-          %th Username
-          %th Email
-          %th.col-md-2 Created Date
-      %tbody
-        - @users.each do |user|
+  .page-header
+    %h1 List all user (sort by latest)
+  .panel.panel-default
+    .panel-heading
+      %h3.panel-title
+        User List
+    .panel-body
+      %table.table.table-bordered.table-hovered.display
+        %thead
           %tr
-            %td= user.username
-            %td= user.email
-            %td= user.created_at.strftime("%d %B %Y")
+            %th Username
+            %th Email
+            %th.col-md-2 Created Date
+        %tbody
+          - @users.each do |user|
+            %tr
+              %td= user.username
+              %td= user.email
+              %td= user.created_at.strftime("%d %B %Y")

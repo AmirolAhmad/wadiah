@@ -1,4 +1,70 @@
-.jumbotron
-  %h1 Hello world!
-  %p This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.
-  %p= link_to "Learn more", "#", class: "btn btn-primary btn-lg"
+#header-image
+  #main-top-background
+  .main-top-overlay
+    .container
+      .row
+        .col-lg-12.text-center
+          / %h1.logo-big SimpleHubCRM
+          %h2 Try forex trading risk-free with a free account
+          %p.desc Full access to platform and tools
+          %p.desc Track your order and payment record
+          %p.desc Secure & backup daily
+.how-it-works
+  .container
+    %h1.text-center Quick & Easy Step Just to Follow
+    .row
+      .col-md-4.text-center
+        .each-step
+          .icon.icon-choose
+          %p
+            %em 1
+            Create free account
+          %span
+            Register as simple as ABC
+      .col-md-4.text-center
+        .each-step
+          .icon.icon-payment
+          %p
+            %em 2
+            Purchase order
+          %span
+            View order record and keep it clean
+      .col-md-4.text-center
+        .each-step.last-step
+          .icon.icon-arrival
+          %p
+            %em 3
+            Easy Payment
+          %span
+            Pay and fill form. We will respond it shortly
+.apply
+  .container
+    .row
+      .col-md-10.col-md-offset-1.text-center
+        %h2 Register Now & Keep Forex
+        %p
+          Place to keep track record on your Forex order and payment 
+          %br
+          We are here to help you to boost up revenue
+        = link_to "Create Account For FREE", register_path, class: "btn btn-primary btn-lg"
+.concern
+  .container
+    .row
+      .col-md-10.col-md-offset-1.text-center
+        %h2 Your Data is Kept Secure & Private
+    .row
+      .col-md-4.text-center
+        .img-lock
+        %h3 128-BIT ENCRYPTION
+      .col-md-4.text-center
+        .img-backup
+        %h3 CLOUD STORAGE
+      .col-md-4.text-center
+        .img-organize
+        %h3 PRIVACY BENEFIT
+.subscribe
+  .container
+    .row
+      .col-md-10.col-md-offset-1.text-center
+        %h2 Are you our existing member? Login now
+        %p= link_to "Member Sign In", login_path, class: "btn btn-primary btn-lg"

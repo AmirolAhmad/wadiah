@@ -169,6 +169,257 @@ section#password-form p a {
 }
 
 /*
+	FrontPage
+*/
+
+#header-image {
+	color: #ffffff;
+	position: relative;
+	margin-top: -20px;
+}
+
+#header-image #main-top-background {
+	background: url('/assets/header-bg.jpg');
+	background-color: #ffffff;
+	background-size: cover;
+	background-position: center;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: block;
+}
+
+#header-image .main-top-overlay {
+	background: rgba(0, 0, 0, 0.7);
+	padding: 70px 0 100px 0;
+	position: relative;
+}
+
+#header-image .logo-big {
+	margin: 10px 0 20px 0;
+}
+
+.logo-big {
+	background: url('/assets/logo-white.png') center no-repeat;
+	height: 100px;
+	width: 100%;
+	text-indent: -9999px;
+}
+
+#header-image h2 {
+	font-weight: 700;
+	font-size: 43px;
+	line-height: 52px;
+	margin-bottom: 12px;
+}
+
+#header-image p.desc {
+	margin-bottom: 0;
+	color: rgba(255, 255, 255, 0.85);
+	font-size: 23px;
+	line-height: 35px;
+}
+
+/*
+	Footer
+*/
+
+.pages.index .footer {
+  background-color: #e7ebf0;
+  padding: 45px 0 35px;
+  font-size: 13px;
+  color: #666;
+}
+
+.pages.privacy .footer,
+.pages.terms .footer {
+  background-color: #fff;
+  padding: 45px 0 35px;
+  font-size: 13px;
+  color: #666;
+}
+
+.logo-small {
+  background: url("/assets/logo-small.png") center no-repeat;
+  height: 25px;
+  width: 95px;
+  text-indent: -9999px;
+  display: block;
+}
+
+.footer span.logo-small {
+  margin-right: 5px;
+  background-position: 0px center;
+}
+
+.footer .logo-block span {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.footer span.copy {
+  vertical-align: -4px;
+  margin-bottom: 0;
+}
+
+.footer .footer-right {
+  text-align: right;
+}
+
+.footer .social-links a i {
+  width: 36px;
+  height: 36px;
+  text-align: center;
+  color: #fff;
+  border-radius: 4px;
+  padding-top: 8px;
+}
+
+.footer .social-links .fa-facebook {
+  background: #3b5998;
+}
+
+.footer .social-links .fa-twitter {
+  background: #00b0ed;
+}
+
+.footer .social-links .fa-linkedin {
+  background: #107db8;
+}
+
+.footer .social-links a {
+  font-size: 24px;
+}
+
+/*
+	Easy Step
+*/
+
+.how-it-works {
+	background: #fff;
+	padding: 40px 0 40px;
+}
+
+.how-it-works .each-step {
+	padding: 20px 10px 25px;
+	border-radius: 4px;
+	position: relative;
+}
+
+.how-it-works .icon {
+	background: url('/assets/easy-step.png') no-repeat 0 0;
+	width: 200px;
+	height: 200px;
+	display: block;
+	margin: 0 auto 20px;
+}
+
+.how-it-works .icon.icon-payment {
+	background-position: -200px 0;
+}
+
+.how-it-works .icon.icon-arrival {
+	background-position: -400px 0;
+}
+
+.how-it-works .each-step p {
+	font-size: 23px;
+	font-weight: 400;
+}
+
+.how-it-works .each-step p em {
+	font-style: normal;
+  color: #e71941;
+  font-size: 16px;
+  border: 1px solid #e71941;
+  border-radius: 50%;
+  display: inline-block;
+  width: 26px;
+  height: 25px;
+  margin-right: 8px;
+  vertical-align: 3px;
+}
+
+.apply {
+  background: #333 url("/assets/apply-bg.jpg") no-repeat center;
+  background-size: cover;
+  padding: 120px 0 60px;
+  color: #fff;
+  position: relative;
+}
+
+.apply h2 {
+  font-size: 40px;
+  font-weight: 800;
+  margin-bottom: 15px;
+}
+
+.apply p {
+	font-size: 19px;
+  margin-bottom: 18px;
+}
+
+.concern {
+	background-color: #fff;
+	padding: 60px 0 60px;
+  color: #333;
+  position: relative;
+}
+
+.concern h2 {
+	font-size: 40px;
+	font-weight: 800;
+  margin-bottom: 15px;
+}
+
+.subscribe {
+  /*background-color: #5BB7F4;*/
+  background: #333 url("/assets/subscribe.png") no-repeat center;
+  padding: 60px 0 60px;
+  color: #333;
+  position: relative;
+}
+
+.subscribe h2 {
+  font-size: 38px;
+  line-height: 60px;
+  font-weight: 800;
+  margin-bottom: 15px;
+}
+
+.img-lock {
+  background: url("/assets/locked.png") center no-repeat;
+  height: 200px;
+  width: 200px;
+  text-indent: -9999px;
+  display: block;
+}
+
+.img-backup {
+  background: url("/assets/save.png") center no-repeat;
+  height: 200px;
+  width: 200px;
+  text-indent: -9999px;
+  display: block;
+}
+
+.img-organize {
+  background: url("/assets/book.png") center no-repeat;
+  height: 200px;
+  width: 200px;
+  text-indent: -9999px;
+  display: block;
+}
+
+.concern .img-lock,
+.concern .img-backup,
+.concern .img-organize {
+  margin: 0 auto;
+  background-position: 0px center;
+
+/*
 	custom
 */
 
