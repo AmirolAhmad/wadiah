@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   get 'dashboard' => 'dashboards#index'
+  get 'plan' => 'pages#plan'
 
   devise_for :users
   devise_scope :user do

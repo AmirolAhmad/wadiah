@@ -222,6 +222,28 @@ section#password-form p a {
 	line-height: 35px;
 }
 
+.what-forex {
+  padding: 30px 0 30px;
+}
+
+@media (min-width: 768px) {
+  .what-forex .featurette-heading {
+    font-size: 50px;
+    margin-top: 140px;
+  }
+}
+
+.what-forex p .lead {
+  font-size: 21px;
+  line-height: 24px;
+}
+
+.forex-currency {
+  background: url("/assets/forex-currency-pair.jpg") center no-repeat;
+  height: 540px;
+  width: 493px;
+}
+
 /*
 	Footer
 */
