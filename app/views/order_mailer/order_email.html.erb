@@ -825,8 +825,9 @@ p.italic {
                         <tr>
                           <td>
                             <h1>Hi, <%= @order.user.username %></h1>
-                            <p class="lead">Thank you for placing an order at Wadiah Savings. An admin will respond to your order shortly.</p>
-                            <p>Your order number is <strong><%= @order[:order_number] %></strong>. Please keep this order number for future references.</p>
+                            <p class="lead">Thank you for placing an order at Wadiah Savings.</p>
+                            <p>Your order number is <strong><%= @order[:order_number] %></strong>. Please keep this order number for future references.</p><br />
+                            <p>Please make a payment. After you submit the payment, please fill this form [<a href="http://wadiah.dev/payments/new" target="_blank">Add Payment Form</a>] so that admin can reviewed your payment details and activate your order.</p>
                           </td>
                           <td class="expander"></td>
                         </tr>
