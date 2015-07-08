@@ -16,5 +16,6 @@
  *= require bootstrap-timepicker
  *= require jquery.dataTables.min
  *= require dataTables.bootstrap
+ *= require bankmy
  *= require style
  */
