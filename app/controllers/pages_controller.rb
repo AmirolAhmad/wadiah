@@ -4,4 +4,7 @@ class PagesController < ApplicationController
 
   def plan
   end
+
+  def record
+  end
 end

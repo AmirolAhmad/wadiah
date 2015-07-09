@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   get 'dashboard' => 'dashboards#index'
   get 'plan' => 'pages#plan'
+  get 'record' => 'pages#record'
 
   devise_for :users
   devise_scope :user do
